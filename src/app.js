@@ -1,7 +1,13 @@
 import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
 
 const PORT = 5000;
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 app.get("/api/testREST", (req, res) => {
   console.log("실행");
@@ -12,7 +18,7 @@ app.get("/api/testREST", (req, res) => {
 });
 
 app.post("/api/dataTest", (req, res) => {
-  console.log("data");
+  console.log(req.body.params);
 });
 
 app.listen(PORT, () => {
