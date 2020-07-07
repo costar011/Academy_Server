@@ -21,6 +21,10 @@ app.post("/api/dataTest", (req, res) => {
   console.log(req.body.params);
 });
 
+app.post("/api/fileUpload", (req, res) => {
+  console.log(req.body.form);
+});
+
 app.listen(PORT, () => {
   console.log(`✅ ${PORT} Server Start`);
 });
